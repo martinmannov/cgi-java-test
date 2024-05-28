@@ -14,7 +14,6 @@
 + principalAmount: 10000 (big decimal, required)
 + interestRate: 3.5 (big decimal, required) - in #.##%
 + term: 3 (int, required) - in months
-+
 
 ## API EndPoints
 

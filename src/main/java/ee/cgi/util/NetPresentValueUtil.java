@@ -17,18 +17,16 @@ public class NetPresentValueUtil {
 
     public static BigDecimal calculateNPV(Loan loan, double discountRate) {
         BigDecimal principalAmount = loan.getPrincipalAmount();
-        BigDecimal annualInterestRate = loan.getInterestRate().divide(BigDecimal.valueOf(1000), MathContext.DECIMAL128);
+        BigDecimal annualInterestRate = loan.getInterestRate().divide(BigDecimal.valueOf(100), MathContext.DECIMAL128);
         int loanTermMonths = loan.getTerm();
 
         BigDecimal npv = BigDecimal.ZERO;
-        BigDecimal[] cashFlows = generateMonthlyCashFlow(principalAmount, annualInterestRate, loanTermMonths);
-
-        for (int i = 0; i < cashFlows.length; i++) {
-            BigDecimal discountedCashFlow = cashFlows[i].divide(BigDecimal.valueOf(Math.pow(1 + discountRate, i + 1)), MathContext.DECIMAL128);
+        BigDecimal[] cashFlow = generateMonthlyCashFlow(principalAmount, annualInterestRate, loanTermMonths);
+        for (int i = 0; i < cashFlow.length; i++) {
+            BigDecimal discountedCashFlow = cashFlow[i].divide(BigDecimal.valueOf(Math.pow(1 + discountRate, i + 1)), MathContext.DECIMAL128);
             npv = npv.add(discountedCashFlow);
         }
-
-        // TODO Rounding mode needs to be verified
+        // Rounding mode needs to be verified
         return principalAmount.subtract(npv).setScale(2, RoundingMode.HALF_UP);
     }
 
@@ -54,6 +52,6 @@ public class NetPresentValueUtil {
         BigDecimal denominator = onePlusRPowerN.subtract(BigDecimal.ONE);
 
         // Rounding mode needs to be verified
-        return numerator.divide(denominator, 2, RoundingMode.HALF_UP);
+        return numerator.divide(denominator, 10, RoundingMode.HALF_UP);
     }
 }

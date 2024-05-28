@@ -19,8 +19,7 @@ public class NetPresentValueUtilTest {
         loan.setTerm(12);
         var npv = NetPresentValueUtil.calculateNPV(loan);
 
-        //var expectedNPV = new BigDecimal("4213.676");
-        var expectedNPV = new BigDecimal("4311.18");
+        var expectedNPV = new BigDecimal("4213.70");
 
         assertEquals(expectedNPV, npv);
     }
@@ -34,7 +33,7 @@ public class NetPresentValueUtilTest {
         loan.setTerm(24);
         var npv = NetPresentValueUtil.calculateNPV(loan);
 
-        var expectedNPV = new BigDecimal("6242.67");
+        var expectedNPV = new BigDecimal("6118.35");
 
         assertEquals(expectedNPV, npv);
     }
@@ -46,7 +45,7 @@ public class NetPresentValueUtilTest {
         int termInMonths = 12;
         var monthlyPayment = NetPresentValueUtil.calculateMonthlyPayment(principalAmount, interestRate, termInMonths);
 
-        var expectedMonthly = new BigDecimal("834.91");
+        var expectedMonthly = new BigDecimal("834.9140392887");
 
         assertEquals(expectedMonthly, monthlyPayment);
     }
