@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class LoanModificationServiceImpl implements LoanModificationService{
+public class LoanModificationServiceImpl implements LoanModificationService {
     @Autowired
     private LoanRepository loanRepository;
 

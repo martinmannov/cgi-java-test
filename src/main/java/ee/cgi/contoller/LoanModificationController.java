@@ -6,7 +6,6 @@ import ee.cgi.service.LoanModificationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,7 +36,7 @@ public class LoanModificationController {
     }
 
     @PutMapping("/{id}")
-    public LoanDto updateLoan(@PathVariable Long id,@RequestBody LoanDto loanDto) {
+    public LoanDto updateLoan(@PathVariable Long id, @RequestBody LoanDto loanDto) {
         return loanModificationService.updateLoan(id, loanDto);
     }
 }

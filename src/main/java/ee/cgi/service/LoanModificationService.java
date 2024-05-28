@@ -34,7 +34,7 @@ public interface LoanModificationService {
     /**
      * Updates loan
      *
-     * @param id id of loan that is being updated
+     * @param id      id of loan that is being updated
      * @param loanDto @{@link LoanDto}
      * @return updated loan
      */

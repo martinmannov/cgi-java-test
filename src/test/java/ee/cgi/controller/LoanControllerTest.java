@@ -32,7 +32,7 @@ public class LoanControllerTest {
 
     @Test
     public void addLoanEndpoint() throws Exception {
-        LoanDto loanDto=new LoanDto();
+        LoanDto loanDto = new LoanDto();
         loanDto.setPrincipalAmount(new BigDecimal(100000));
         loanDto.setInterestRate(new BigDecimal("3.5"));
         loanDto.setTerm(12);
@@ -49,7 +49,7 @@ public class LoanControllerTest {
     }
 
     @Test
-    public void fetchAllLoansEndpoint() throws Exception{
+    public void fetchAllLoansEndpoint() throws Exception {
         mockMvc.perform(get("/api/loan")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())

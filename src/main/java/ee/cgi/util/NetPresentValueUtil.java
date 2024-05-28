@@ -29,7 +29,7 @@ public class NetPresentValueUtil {
         }
 
         // TODO Rounding mode needs to be verified
-        return principalAmount.subtract(npv).setScale(2,RoundingMode.HALF_UP);
+        return principalAmount.subtract(npv).setScale(2, RoundingMode.HALF_UP);
     }
 
     public static BigDecimal[] generateMonthlyCashFlow(BigDecimal principalAmount, BigDecimal annualInterestRate, int loanTermMonths) {

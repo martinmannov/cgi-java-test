@@ -14,7 +14,7 @@ public class LoanMapper {
                 .setTerm(loan.getTerm());
     }
 
-    public static Loan toLoan(LoanDto loanDto){
+    public static Loan toLoan(LoanDto loanDto) {
         var loan = new Loan();
         loan.setPrincipalAmount(loanDto.getPrincipalAmount());
         loan.setInterestRate(loanDto.getInterestRate());
